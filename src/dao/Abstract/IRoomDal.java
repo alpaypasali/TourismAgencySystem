@@ -13,4 +13,5 @@ public interface IRoomDal {
     Room getById(int id);
     ArrayList<Room> getAll();
     ArrayList<Room> selectByQuery(String query);
+    ArrayList<Room> getRoomsByHotelId(int hotelId);
 }

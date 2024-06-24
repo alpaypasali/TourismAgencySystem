@@ -4,6 +4,7 @@ import business.services.IRoomService;
 import business.services.ISeasonService;
 import core.utilities.exceptions.BusinessException;
 import core.utilities.exceptions.DatabaseException;
+import core.utilities.exceptions.ValidationException;
 import core.utilities.handlers.ErrorHandler;
 import core.utilities.results.SuccessInformationResult;
 import dao.Abstract.IRoomDal;
@@ -28,6 +29,7 @@ public class RoomManager implements IRoomService {
         try {
 
             RoomCannotBeEmpty(room);
+            StockCannotbeSmallerThanZero(room.getStock());
             boolean createdPensionType = roomDal.create(room);
             if(createdPensionType == false){
 
@@ -50,6 +52,7 @@ public class RoomManager implements IRoomService {
         try {
 
             RoomCannotBeEmpty(room);
+            StockCannotbeSmallerThanZero(room.getStock());
             boolean createdPensionType = roomDal.update(room);
             if(createdPensionType == false){
 
@@ -156,6 +159,13 @@ public class RoomManager implements IRoomService {
         if (room == null) {
             throw new BusinessException("Room cannot find");
         }
+
+    }
+    private  void StockCannotbeSmallerThanZero(int stock) throws ValidationException {
+        if (stock <= 0) {
+            throw new ValidationException("Stock cannot be smaller or equals than zero");
+        }
+
 
     }
 }

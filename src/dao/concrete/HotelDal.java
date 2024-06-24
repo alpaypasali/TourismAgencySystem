@@ -2,42 +2,45 @@ package dao.concrete;
 
 import dao.Abstract.IHotelDal;
 import dao.Abstract.IPensionTypeDal;
+import dao.Abstract.IRoomDal;
 import dao.Abstract.ISeasonsDal;
 import dao.Db.Db;
 import entity.Hotel;
+import entity.Room;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+
 
 public class HotelDal implements IHotelDal {
 
-    private  final Connection conn;
-    private   IPensionTypeDal pensionTypeDal;
-
+    private final Connection conn;
+    private final IPensionTypeDal pensionTypeDal;
 
     private static final String SELECT_ALL_QUERY = "SELECT * FROM hotels ORDER BY hotel_id ASC";
     private static final String INSERT_QUERY = "INSERT INTO hotels (hotel_name, city, district, full_address, email, phone, star_rating, has_free_parking, has_spa, has_24_7_room_service, pension_type_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_QUERY = "UPDATE hotels SET hotel_name = ?, city = ?, district = ?, full_address = ?, email = ?, phone = ?, star_rating = ?, has_free_parking = ?, has_spa = ?, has_24_7_room_service = ?, pension_type_id = ? WHERE hotel_id = ?";
     private static final String DELETE_QUERY = "DELETE FROM hotels WHERE hotel_id = ?";
     private static final String SELECT_BY_ID_QUERY = "SELECT * FROM hotels WHERE hotel_id = ?";
+
     public HotelDal() {
         this.conn = Db.getInstance();
         this.pensionTypeDal = new PensionTypeDal();
-
-
-
     }
+
     @Override
     public boolean create(Hotel hotel) {
-        return  executeUpdate(INSERT_QUERY , hotel);
+        return executeUpdate(INSERT_QUERY, hotel);
     }
 
     @Override
     public boolean update(Hotel hotel) {
-        return  executeUpdate(UPDATE_QUERY , hotel);
+        return executeUpdate(UPDATE_QUERY, hotel);
     }
 
     @Override
@@ -93,6 +96,12 @@ public class HotelDal implements IHotelDal {
         return hotels;
     }
 
+    public ArrayList<Room> getRoomsByHotel(Hotel hotel) {
+        RoomDal roomDal = new RoomDal();
+        return roomDal.getRoomsByHotelId(hotel.getHotelId());
+    }
+
+
     private boolean executeUpdate(String query, Hotel hotel) {
         try (PreparedStatement pr = conn.prepareStatement(query)) {
             pr.setString(1, hotel.getHotelName());
@@ -116,6 +125,7 @@ public class HotelDal implements IHotelDal {
         }
         return false;
     }
+
     private Hotel extractHotel(ResultSet resultSet) throws SQLException {
         Hotel hotel = new Hotel();
         hotel.setHotelId(resultSet.getInt("hotel_id"));
@@ -132,6 +142,10 @@ public class HotelDal implements IHotelDal {
         hotel.setPensionTypeId(resultSet.getInt("pension_type_id"));
         hotel.setPensionType(this.pensionTypeDal.getById(resultSet.getInt("pension_type_id")));
 
+        // Fetch and set rooms
+        RoomDal roomDal = new RoomDal();
+        ArrayList<Room> rooms = roomDal.getRoomsByHotelId(hotel.getHotelId());
+        hotel.setRooms(rooms);
 
         return hotel;
     }

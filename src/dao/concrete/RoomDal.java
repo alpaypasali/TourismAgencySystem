@@ -63,7 +63,20 @@ public class RoomDal implements IRoomDal {
         }
         return room;
     }
-
+    public ArrayList<Room> getRoomsByHotelId(int hotelId) {
+        ArrayList<Room> rooms = new ArrayList<>();
+        String query = "SELECT * FROM public.rooms WHERE hotel_id = ? AND stock > 0";
+        try (PreparedStatement pr = conn.prepareStatement(query)) {
+            pr.setInt(1, hotelId);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                rooms.add(extractRoom2(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rooms;
+    }
     @Override
     public ArrayList<Room> getAll() {
         ArrayList<Room> roomArrayList = new ArrayList<>();
@@ -120,6 +133,24 @@ public class RoomDal implements IRoomDal {
         room.setRoomId(rs.getInt("room_id"));
         room.setHotelId(rs.getInt("hotel_id"));
         room.setHotel(this.hotelDal.getById(rs.getInt("hotel_id")));
+        room.setRoomTypeId(rs.getInt("room_type_id"));
+        room.setRoomType(this.roomTypeDal.getById(rs.getInt("room_type_id")));
+        room.setAdultPrice(rs.getInt("adult_price"));
+        room.setChildPrice(rs.getInt("child_price"));
+        room.setStock(rs.getInt("stock"));
+        room.setBedCount(rs.getInt("bed_count"));
+        room.setSquareMeters(rs.getInt("square_meters"));
+        room.setTelevision(rs.getBoolean("television"));
+        room.setMinibar(rs.getBoolean("minibar"));
+        room.setGameConsole(rs.getBoolean("game_console"));
+        room.setSafe(rs.getBoolean("safe"));
+        room.setProjection(rs.getBoolean("projection"));
+        return room;
+    }
+    private Room extractRoom2(ResultSet rs) throws SQLException {
+        Room room = new Room();
+        room.setRoomId(rs.getInt("room_id"));
+        room.setHotelId(rs.getInt("hotel_id"));
         room.setRoomTypeId(rs.getInt("room_type_id"));
         room.setRoomType(this.roomTypeDal.getById(rs.getInt("room_type_id")));
         room.setAdultPrice(rs.getInt("adult_price"));

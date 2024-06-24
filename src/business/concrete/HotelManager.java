@@ -9,6 +9,8 @@ import dao.Abstract.IHotelDal;
 import dao.concrete.HotelDal;
 import entity.Hotel;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class HotelManager implements IHotelService {
@@ -103,6 +105,34 @@ public class HotelManager implements IHotelService {
             return  null;
 
         return hotels;
+    }
+    public ArrayList<Hotel> searchHotels(String hotelName, String city, String startDate, String endDate) {
+        // Başlangıç sorgusu
+        String query = "SELECT DISTINCT h.* FROM public.hotels h " +
+                "JOIN public.seasons s ON h.hotel_id = s.hotel_id " +
+                "AND s.start_date <= '" + endDate + "' AND s.end_date >= '" + startDate + "'";
+
+        // WHERE koşulu için ArrayList ve tarih formatlaması
+        ArrayList<String> where = new ArrayList<>();
+
+        // Eğer otel adı parametresi doluysa, WHERE koşulunu ekleyin
+        if (!hotelName.isEmpty()) {
+            where.add("h.hotel_name = '" + hotelName + "'");
+        }
+
+        // Eğer şehir parametresi doluysa, WHERE koşulunu ekleyin
+        if (!city.isEmpty()) {
+            where.add("h.city = '" + city + "'");
+        }
+
+        // WHERE koşulunu oluşturun
+        String whereStr = String.join(" AND ", where);
+        if (!where.isEmpty()) {
+            query += " WHERE " + whereStr;
+        }
+
+        // Sonucu döndürün
+        return this.hotelDal.selectByQuery(query);
     }
 
     @Override

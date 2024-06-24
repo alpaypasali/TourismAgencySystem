@@ -3,6 +3,7 @@ package dao.Abstract;
 import entity.Hotel;
 import entity.PensionType;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public interface IHotelDal {
@@ -13,4 +14,5 @@ public interface IHotelDal {
     Hotel getById(int id);
     ArrayList<Hotel> getAll();
     ArrayList<Hotel> selectByQuery(String query);
+
 }

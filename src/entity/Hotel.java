@@ -19,7 +19,7 @@ public class Hotel {
     private Boolean has24_7RoomService;
     private Integer pensionTypeId;
     private PensionType pensionType;
-    private ArrayList<Room> rooms;
+    private ArrayList<Room> rooms ;
 
 
     public ArrayList<Room> getRooms() {

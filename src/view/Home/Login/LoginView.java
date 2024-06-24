@@ -37,7 +37,7 @@ public class LoginView extends JFrame {
                 }
                 else{
 
-                    EmployeeHomeView employeeHomeView = new EmployeeHomeView(user.getData());
+                    EmployeeHomeView employeeHome = new EmployeeHomeView(user.getData());
                 }
                 dispose();
             }
