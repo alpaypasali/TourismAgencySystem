@@ -2,6 +2,7 @@ package dao.concrete;
 
 import dao.Abstract.IHotelDal;
 import dao.Abstract.IPensionTypeDal;
+import dao.Abstract.ISeasonsDal;
 import dao.Db.Db;
 import entity.Hotel;
 
@@ -15,6 +16,8 @@ public class HotelDal implements IHotelDal {
 
     private  final Connection conn;
     private   IPensionTypeDal pensionTypeDal;
+
+
     private static final String SELECT_ALL_QUERY = "SELECT * FROM hotels ORDER BY hotel_id ASC";
     private static final String INSERT_QUERY = "INSERT INTO hotels (hotel_name, city, district, full_address, email, phone, star_rating, has_free_parking, has_spa, has_24_7_room_service, pension_type_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_QUERY = "UPDATE hotels SET hotel_name = ?, city = ?, district = ?, full_address = ?, email = ?, phone = ?, star_rating = ?, has_free_parking = ?, has_spa = ?, has_24_7_room_service = ?, pension_type_id = ? WHERE hotel_id = ?";
@@ -23,6 +26,8 @@ public class HotelDal implements IHotelDal {
     public HotelDal() {
         this.conn = Db.getInstance();
         this.pensionTypeDal = new PensionTypeDal();
+
+
 
     }
     @Override
@@ -126,6 +131,8 @@ public class HotelDal implements IHotelDal {
         hotel.setHas24_7RoomService(resultSet.getBoolean("has_24_7_room_service"));
         hotel.setPensionTypeId(resultSet.getInt("pension_type_id"));
         hotel.setPensionType(this.pensionTypeDal.getById(resultSet.getInt("pension_type_id")));
+
+
         return hotel;
     }
 }

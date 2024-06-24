@@ -1,5 +1,9 @@
 package entity;
 
+import core.utilities.helpers.ComboItem;
+
+import java.util.ArrayList;
+
 public class Hotel {
 
     private Integer hotelId;
@@ -15,6 +19,17 @@ public class Hotel {
     private Boolean has24_7RoomService;
     private Integer pensionTypeId;
     private PensionType pensionType;
+    private ArrayList<Room> rooms;
+
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public Hotel(){
 
     }
@@ -122,5 +137,8 @@ public class Hotel {
 
     public void setPensionType(PensionType pensionType) {
         this.pensionType = pensionType;
+    }
+    public ComboItem getComboItem() {
+        return new ComboItem(this.getHotelId(),this.getHotelName() +" - " + this.getPensionType());
     }
 }

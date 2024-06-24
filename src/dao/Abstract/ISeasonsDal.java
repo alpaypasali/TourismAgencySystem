@@ -10,6 +10,7 @@ public interface ISeasonsDal {
     boolean update(Season seasons);
     boolean delete(int id);
     Season getByid(int id);
+    Season getByHotelid(int hotelId);
     ArrayList<Season> selectByQuery(String query);
 
 }

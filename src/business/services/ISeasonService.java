@@ -12,5 +12,7 @@ public interface ISeasonService {
     SuccessInformationResult delete(int id);
     Season getById(int id);
     ArrayList<Season> getAll();
-    ArrayList<Object[]> getForTable(int size);
+    ArrayList<Object[]> getForTable(int size , ArrayList<Season> seasonArrayList);
+    boolean checkIfHasSeason(int hotelId);
+    Season getByHotelId(int hotelId);
 }

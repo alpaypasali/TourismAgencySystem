@@ -8,6 +8,15 @@ public class Season {
     private  int hotel_id;
     private LocalDate start_date;
     private  LocalDate end_date;
+    private Hotel hotel;
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 
     public Season() {
     }

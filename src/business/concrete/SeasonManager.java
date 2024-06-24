@@ -12,6 +12,8 @@ import entity.RoomType;
 import entity.Season;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class SeasonManager implements ISeasonService {
     private ISeasonsDal seasonsDal;
@@ -108,19 +110,35 @@ public class SeasonManager implements ISeasonService {
     }
 
     @Override
-    public ArrayList<Object[]> getForTable(int size) {
+    public ArrayList<Object[]> getForTable(int size , ArrayList<Season> seasonArrayList) {
         ArrayList<Object[]> arrayList = new ArrayList<>();
-
-        for (Season u : this.getAll()) {
+        if (seasonArrayList == null) {
+            return arrayList; // Return empty list if modelList is null
+        }
+        for (Season u : seasonArrayList) {
             Object[] rowObject = new Object[size];
             int i = 0;
             rowObject[i++] = u.getSeason_id();
-            rowObject[i++] = u.getHotel_id();
+            rowObject[i++] = u.getHotel().getHotelName();
             rowObject[i++] = u.getStart_date();
             rowObject[i++] = u.getEnd_date();
             arrayList.add(rowObject);
         }
         return arrayList;
+    }
+
+    public boolean checkIfHasSeason(int hotelId) {
+        List<Season> seasons = seasonsDal.getAll();
+        return seasons.stream().anyMatch(season -> season.getHotel_id() == hotelId);
+    }
+
+    @Override
+    public Season getByHotelId(int hotelId) {
+        List<Season> seasons = seasonsDal.getAll();
+        Optional<Season> seasonOptional = seasons.stream()
+                .filter(season -> season.getHotel_id() == hotelId)
+                .findFirst();
+        return seasonOptional.orElse(null);
     }
 
     private  void SeasonsCannotBeEmpty(Season season) throws BusinessException {
