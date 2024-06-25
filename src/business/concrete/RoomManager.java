@@ -16,6 +16,7 @@ import entity.Season;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class RoomManager implements IRoomService {
     private IRoomDal roomDal;
@@ -113,6 +114,19 @@ public class RoomManager implements IRoomService {
             return  null;
 
         return roomArrayList;
+    }
+    @Override
+    public ArrayList<Room> getAllByHotelId(int hotelId) {
+        ArrayList<Room> roomArrayList = roomDal.getAll();
+        if (roomArrayList.isEmpty())
+            return null;
+
+        // Use stream and filter to get rooms with the specified hotel ID
+        ArrayList<Room> filteredRooms = roomArrayList.stream()
+                .filter(room -> room.getHotelId() == hotelId)
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        return filteredRooms.isEmpty() ? null : filteredRooms;
     }
 
     @Override

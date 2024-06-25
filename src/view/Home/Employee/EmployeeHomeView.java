@@ -1,21 +1,22 @@
 package view.Home.Employee;
 
 import business.concrete.HotelManager;
+import business.concrete.RoomManager;
 import business.services.IHotelService;
+import business.services.IRoomService;
 import core.utilities.helpers.FrameHelper;
 import entity.Hotel;
+import entity.Room;
 import entity.User;
 import view.AdminLayout;
 import view.Employee.Hotel.HotelHomeView;
+import view.Employee.Reservation.InfoHotelView;
 import view.Employee.Room.RoomHomeView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,16 +34,20 @@ public class EmployeeHomeView extends AdminLayout {
     private JButton btn_Hotel;
     private JButton btn_room;
     private JButton btn_reservation;
+    private JTable tbl_rooms;
     private IHotelService hotelService;
     private User user;
     private Object[] columnNames;
+    private Object[] columnNames2;
     private DefaultTableModel defaultTableModel = new DefaultTableModel();
+    private DefaultTableModel defaultTableModel2 = new DefaultTableModel();
     private JPopupMenu infoMenu;
-
+    private IRoomService roomService;
 
     public EmployeeHomeView(User user){
         this.add(container);
         this.hotelService = new HotelManager();
+        this.roomService = new RoomManager();
         this.user = user;
         this.infoMenu = new JPopupMenu();
         FrameHelper.setupFrame(this,989, 555, "Alpay Tourism Agency");
@@ -54,6 +59,7 @@ public class EmployeeHomeView extends AdminLayout {
                 if (SwingUtilities.isRightMouseButton(e)) {
                     infoMenu.show(tbl_hotels, e.getX(), e.getY());
                 }
+                CreateHotelRoomsTable(null);
             }
         });
 
@@ -63,8 +69,67 @@ public class EmployeeHomeView extends AdminLayout {
         ManagmentMenues();
         Search();
         Clear();
+        getHotelInformation();
+        CreateHotelRoomsTable(null);
 
 
+
+    }
+    public void CreateHotelRoomsTable(ArrayList<Object[]> modelList){
+        int selectedRow = tbl_hotels.getSelectedRow();
+        this.columnNames2 = new Object[]{
+                "Room ID",
+                "Hotel Name",
+                "Pension Type",
+                "Season",
+                "Room Type",
+                "Stock",
+                "Adult Price",
+                "Child Price",
+                "Bed Capacity",
+                "Square Meter"
+        };
+
+        if (selectedRow != -1) {
+            int selectedId = Integer.parseInt(tbl_hotels.getValueAt(selectedRow, 0).toString());
+
+
+
+            if (modelList == null || modelList.isEmpty()) {
+                modelList = roomService.getForTable(this.columnNames2.length,roomService.getAllByHotelId(selectedId) );
+            }
+        }
+
+        if (modelList == null || modelList.isEmpty()) {
+            System.out.println("The table is empty. No data available.");
+            modelList = new ArrayList<>();
+            modelList.add(new Object[]{"Please Select Hotel", "", "", "", "", "", "", "", "", ""});
+        }
+        createTable(defaultTableModel2, tbl_rooms, columnNames2, modelList);
+    }
+
+    public void getHotelInformation(){
+        this.infoMenu.add("Information").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = tbl_hotels.getSelectedRow();
+                if (selectedRow != -1) {
+                    int selectedId = Integer.parseInt(tbl_hotels.getValueAt(selectedRow, 0).toString());
+                    Hotel selectedHotel = hotelService.getById(selectedId);
+                    InfoHotelView editView = new InfoHotelView(selectedHotel);
+                    editView.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                            CreateHotelTable(null);
+
+
+                        }
+                    });
+
+
+                }
+            }
+        });
 
 
     }

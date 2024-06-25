@@ -1,5 +1,7 @@
 package entity;
 
+import core.utilities.helpers.ComboItem;
+
 public class Room {
 
     private Integer roomId;
@@ -139,5 +141,9 @@ public class Room {
 
     public void setProjection(Boolean projection) {
         this.projection = projection;
+    }
+
+    public ComboItem getComboItem() {
+        return new ComboItem(this.getRoomId(),this.getRoomType().getName() +" - " + "Child Price:"+this.getChildPrice() + " - " + "Adult Price:"+ this.getAdultPrice());
     }
 }

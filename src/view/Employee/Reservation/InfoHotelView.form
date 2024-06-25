@@ -8,19 +8,19 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="b9702" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="b9702" binding="pnl_room" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <enabled value="true"/>
+          <enabled value="false"/>
         </properties>
-        <border type="none"/>
+        <border type="bevel-raised"/>
         <children>
           <component id="87911" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Room Information "/>
@@ -28,13 +28,13 @@
           </component>
           <vspacer id="d2b3c">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <grid id="2b296" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -55,12 +55,12 @@
                       <text value="Bed Count :"/>
                     </properties>
                   </component>
-                  <component id="7d032" class="javax.swing.JLabel">
+                  <component id="7d032" class="javax.swing.JLabel" binding="lbl_bedCount">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -78,15 +78,15 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Square Meters :"/>
                     </properties>
                   </component>
-                  <component id="63abb" class="javax.swing.JLabel">
+                  <component id="4beb1" class="javax.swing.JLabel" binding="lbl_square">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -114,12 +114,12 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="df3e6" class="javax.swing.JCheckBox" binding="checkBox4" default-binding="true">
+                  <component id="df3e6" class="javax.swing.JCheckBox" binding="televisionCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Television"/>
                     </properties>
                   </component>
                   <hspacer id="a861">
@@ -127,12 +127,12 @@
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
-                  <component id="ffd1b" class="javax.swing.JCheckBox" binding="checkBox6" default-binding="true">
+                  <component id="ffd1b" class="javax.swing.JCheckBox" binding="minibarCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Minibar"/>
                     </properties>
                   </component>
                 </children>
@@ -145,12 +145,12 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="b1a47" class="javax.swing.JCheckBox" binding="checkBox5" default-binding="true">
+                  <component id="b1a47" class="javax.swing.JCheckBox" binding="gameConsoleCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Game Console"/>
                     </properties>
                   </component>
                   <hspacer id="4866d">
@@ -158,20 +158,20 @@
                       <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
-                  <component id="75bd4" class="javax.swing.JCheckBox" binding="checkBox7" default-binding="true">
+                  <component id="75bd4" class="javax.swing.JCheckBox" binding="safeCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Safe"/>
                     </properties>
                   </component>
-                  <component id="d8624" class="javax.swing.JCheckBox" binding="checkBox8" default-binding="true">
+                  <component id="d8624" class="javax.swing.JCheckBox" binding="projectionCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Projection"/>
                     </properties>
                   </component>
                 </children>
@@ -208,16 +208,18 @@
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <font size="18" style="1"/>
+            </properties>
             <border type="none"/>
             <children>
-              <grid id="6bb0e" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="6bb0e" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
-                <border type="none"/>
+                <border type="bevel-raised"/>
                 <children>
                   <component id="9bb02" class="javax.swing.JLabel">
                     <constraints>
@@ -225,34 +227,6 @@
                     </constraints>
                     <properties>
                       <text value="City :"/>
-                    </properties>
-                  </component>
-                  <component id="79e30" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="District :"/>
-                    </properties>
-                  </component>
-                  <component id="2b5b9" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <editable value="false"/>
-                    </properties>
-                  </component>
-                  <component id="b96e7" class="javax.swing.JTextField" binding="textField2" default-binding="true">
-                    <constraints>
-                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <editable value="false"/>
                     </properties>
                   </component>
                   <component id="17795" class="javax.swing.JLabel">
@@ -263,50 +237,68 @@
                       <text value="Full Address :"/>
                     </properties>
                   </component>
-                  <component id="2a6c3" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-                    <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="50"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <editable value="false"/>
-                    </properties>
-                  </component>
                   <component id="ea791" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Phone :"/>
                     </properties>
                   </component>
-                  <component id="5fdd8" class="javax.swing.JTextField" binding="textField3" default-binding="true">
-                    <constraints>
-                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <editable value="false"/>
-                    </properties>
-                  </component>
                   <component id="6a5a2" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="E-mail :"/>
                     </properties>
                   </component>
-                  <component id="b93b2" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+                  <component id="d27ba" class="javax.swing.JLabel" binding="lbl_city">
                     <constraints>
-                      <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <editable value="false"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="939af" class="javax.swing.JLabel" binding="lbl_fullAddress">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="6e9c6" class="javax.swing.JLabel" binding="lbl_phone">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="6b0ca" class="javax.swing.JLabel" binding="lbl_email">
+                    <constraints>
+                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="92907" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="District :"/>
+                    </properties>
+                  </component>
+                  <component id="63d5c" class="javax.swing.JLabel" binding="lbl_discrtict">
+                    <constraints>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -320,22 +312,22 @@
                   <text value="Hotel Information"/>
                 </properties>
               </component>
-              <component id="ba0d7" class="javax.swing.JLabel" binding="lbl_hotelName">
+              <component id="593f7" class="javax.swing.JLabel" binding="lbl_Stars">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font size="18" style="1"/>
                   <text value=""/>
                 </properties>
               </component>
-              <component id="593f7" class="javax.swing.JLabel">
+              <component id="40408" class="javax.swing.JLabel" binding="lbl_hotelName">
                 <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font size="18" style="1"/>
-                  <text value="Stars :"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
@@ -345,8 +337,10 @@
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
-            <border type="none"/>
+            <properties>
+              <enabled value="false"/>
+            </properties>
+            <border type="bevel-raised"/>
             <children>
               <component id="e3699" class="javax.swing.JLabel">
                 <constraints>
@@ -357,46 +351,54 @@
                   <text value="Services"/>
                 </properties>
               </component>
-              <component id="db03b" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
+              <component id="db03b" class="javax.swing.JCheckBox" binding="spaCheckBox" default-binding="true">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="CheckBox"/>
+                  <enabled value="false"/>
+                  <selected value="false"/>
+                  <text value="Spa"/>
                 </properties>
               </component>
-              <component id="1e1" class="javax.swing.JCheckBox" binding="checkBox2" default-binding="true">
+              <component id="1e1" class="javax.swing.JCheckBox" binding="a724RoomServiceCheckBox" default-binding="true">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="CheckBox"/>
+                  <enabled value="false"/>
+                  <text value="7/24 Room Service"/>
                 </properties>
               </component>
-              <component id="4538e" class="javax.swing.JCheckBox" binding="checkBox3" default-binding="true">
+              <component id="4538e" class="javax.swing.JCheckBox" binding="parkAreaCheckBox" default-binding="true">
                 <constraints>
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="CheckBox"/>
+                  <enabled value="false"/>
+                  <text value="Park Area"/>
                 </properties>
               </component>
             </children>
           </grid>
         </children>
       </grid>
-      <grid id="bf7ee" binding="pnl_roomType" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="bf7ee" binding="pnl_roomType" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
-        <border type="none"/>
+        <border type="bevel-raised">
+          <font/>
+          <title-color color="-2104859"/>
+          <color color="-2104859"/>
+        </border>
         <children>
           <grid id="5e856" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -409,7 +411,7 @@
                   <text value="Start Date :"/>
                 </properties>
               </component>
-              <component id="7911e" class="javax.swing.JFormattedTextField" binding="formattedTextField1" default-binding="true">
+              <component id="7911e" class="javax.swing.JFormattedTextField" binding="txt_startDate" custom-create="true">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -425,7 +427,7 @@
                   <text value="End Date"/>
                 </properties>
               </component>
-              <component id="db471" class="javax.swing.JFormattedTextField" binding="formattedTextField2" default-binding="true">
+              <component id="db471" class="javax.swing.JFormattedTextField" binding="txt_endDate" custom-create="true">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -438,7 +440,7 @@
           <grid id="38be" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -473,49 +475,59 @@
               </component>
             </children>
           </grid>
-          <grid id="f2faf" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="f2faf" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
               <component id="e7ecc" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Plase Select Room Type :"/>
                 </properties>
               </component>
-              <component id="49325" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+              <vspacer id="841bf">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="49325" class="javax.swing.JComboBox" binding="cmb_roomType">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
+              <vspacer id="6d3e0">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
             </children>
           </grid>
         </children>
       </grid>
-      <grid id="80ae4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="80ae4" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
-        <border type="none"/>
+        <border type="bevel-raised"/>
         <children>
-          <grid id="ce0c3" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="ce0c3" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="15a2b" class="javax.swing.JLabel">
+              <component id="13b6a" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -523,22 +535,42 @@
                   <text value="Total Price :"/>
                 </properties>
               </component>
-              <vspacer id="689d5">
+            </children>
+          </grid>
+          <hspacer id="7657e">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="12" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <grid id="b5dd9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="9d233" class="javax.swing.JTextField" binding="txt_totalPrice">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <component id="d5b3f" class="javax.swing.JTextField" binding="textField5" default-binding="true">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties/>
               </component>
-              <component id="38c52" class="javax.swing.JButton" binding="createReservationButton" default-binding="true">
+            </children>
+          </grid>
+          <grid id="ad2e9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="1af3f" class="javax.swing.JButton" binding="createReservationButton" default-binding="true">
                 <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Create Reservation"/>
