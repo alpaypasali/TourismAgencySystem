@@ -46,7 +46,7 @@ public class CreateRoomView extends JFrame{
         this.roomService = new RoomManager();
         this.hotelService = new HotelManager();
         this.roomTypeService = new RoomTypeManager();
-        FrameHelper.setupFrame(this,400, 755, "Alpay Tourism Agency");
+        FrameHelper.setupFrame(this,600, 500, "Alpay Tourism Agency");
         for (Hotel hotel : this.hotelService.getAll())
         {
             this.cmb_hotel.addItem(hotel.getComboItem());

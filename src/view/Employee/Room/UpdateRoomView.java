@@ -7,6 +7,7 @@ import business.services.IHotelService;
 import business.services.IRoomService;
 import business.services.IRoomTypeService;
 import core.utilities.helpers.ComboItem;
+import core.utilities.helpers.FrameHelper;
 import core.utilities.results.SuccessInformationResult;
 import entity.Hotel;
 import entity.Room;
@@ -41,6 +42,7 @@ public class UpdateRoomView extends  JFrame {
         this.roomService = new RoomManager();
         this.hotelService = new HotelManager();
         this.roomTypeService = new RoomTypeManager();
+        FrameHelper.setupFrame(this,600, 500, "Alpay Tourism Agency");
         this.room = room;
         for (Hotel hotel : this.hotelService.getAll())
         {

@@ -42,7 +42,7 @@ public class UpdateHotelView extends JFrame {
             this.cmb_stars.addItem(stars);
         }
 
-        FrameHelper.setupFrame(this,400, 555, "Alpay Tourism Agency");
+        FrameHelper.setupFrame(this,989, 555, "Alpay Tourism Agency");
 
         for (PensionType pensionType : this.pensionTypeService.getAll())
         {

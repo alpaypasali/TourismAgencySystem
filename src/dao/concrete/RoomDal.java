@@ -77,6 +77,22 @@ public class RoomDal implements IRoomDal {
         }
         return rooms;
     }
+    public ArrayList<Room> getRoomsByHotelId(int hotelId, int roomId) {
+        ArrayList<Room> rooms = new ArrayList<>();
+        String query = "SELECT * FROM public.rooms WHERE hotel_id = ? AND (stock > 0 OR id = ?)";
+        try (PreparedStatement pr = conn.prepareStatement(query)) {
+            pr.setInt(1, hotelId);
+            pr.setInt(2, roomId);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                rooms.add(extractRoom2(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rooms;
+    }
+
     @Override
     public ArrayList<Room> getAll() {
         ArrayList<Room> roomArrayList = new ArrayList<>();

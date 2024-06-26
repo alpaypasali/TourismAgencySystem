@@ -11,6 +11,7 @@ import entity.User;
 import view.AdminLayout;
 import view.Employee.Hotel.HotelHomeView;
 import view.Employee.Reservation.InfoHotelView;
+import view.Employee.Reservation.ReservationHomeView;
 import view.Employee.Room.RoomHomeView;
 
 import javax.swing.*;
@@ -35,6 +36,8 @@ public class EmployeeHomeView extends AdminLayout {
     private JButton btn_room;
     private JButton btn_reservation;
     private JTable tbl_rooms;
+    private JPanel pnl_room;
+    private JScrollPane pnl_scrolRoom;
     private IHotelService hotelService;
     private User user;
     private Object[] columnNames;
@@ -73,7 +76,6 @@ public class EmployeeHomeView extends AdminLayout {
         CreateHotelRoomsTable(null);
 
 
-
     }
     public void CreateHotelRoomsTable(ArrayList<Object[]> modelList){
         int selectedRow = tbl_hotels.getSelectedRow();
@@ -97,15 +99,20 @@ public class EmployeeHomeView extends AdminLayout {
 
             if (modelList == null || modelList.isEmpty()) {
                 modelList = roomService.getForTable(this.columnNames2.length,roomService.getAllByHotelId(selectedId) );
-            }
-        }
 
+
+            }
+
+
+        }
         if (modelList == null || modelList.isEmpty()) {
             System.out.println("The table is empty. No data available.");
             modelList = new ArrayList<>();
-            modelList.add(new Object[]{"Please Select Hotel", "", "", "", "", "", "", "", "", ""});
+            modelList.add(new Object[]{"No data", "", "", "", "", "", ""});
         }
-        createTable(defaultTableModel2, tbl_rooms, columnNames2, modelList);
+        if(modelList != null) {
+            createTable(defaultTableModel2, tbl_rooms, columnNames2, modelList);
+        }
     }
 
     public void getHotelInformation(){
@@ -170,6 +177,13 @@ public class EmployeeHomeView extends AdminLayout {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RoomHomeView roomHomeView = new RoomHomeView();
+            }
+        });
+
+        btn_reservation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ReservationHomeView reservationHomeView = new ReservationHomeView();
             }
         });
 

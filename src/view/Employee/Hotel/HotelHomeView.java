@@ -55,6 +55,7 @@ public class HotelHomeView extends AdminLayout {
         this.hotelMenu = new JPopupMenu();
         this.seasonMenu = new JPopupMenu();
         this.user = user;
+        this.hotel = new Hotel();
         this.seasonService = new SeasonManager();
         this.roomService = new RoomManager();
         FrameHelper.setupFrame(this,989, 555, "Alpay Tourism Agency");

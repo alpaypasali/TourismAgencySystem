@@ -14,4 +14,5 @@ public interface IRoomService {
     ArrayList<Room> getAll();
     ArrayList<Object[]> getForTable(int size , ArrayList<Room> roomArrayList);
     ArrayList<Room> getAllByHotelId(int hotelId);
+    ArrayList<Room> getRoomsByHotelId(int hotelId, int roomId);
 }

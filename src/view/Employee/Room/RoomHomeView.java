@@ -1,11 +1,14 @@
 package view.Employee.Room;
 
+import business.concrete.ReservationManager;
 import business.concrete.RoomManager;
+import business.services.IReservationService;
 import business.services.IRoomService;
 import core.utilities.helpers.FrameHelper;
 import core.utilities.results.SuccessInformationResult;
 import dao.Abstract.IRoomDal;
 import entity.Hotel;
+import entity.Reservation;
 import entity.Room;
 import entity.Season;
 import view.AdminLayout;
@@ -28,6 +31,8 @@ public class RoomHomeView extends AdminLayout {
     private JButton addRoomButton;
     private Room room;
     private IRoomService roomService;
+    private Reservation reservation;
+    private IReservationService reservationService;
     Object[] columnNames;
     private DefaultTableModel defaultTableModel = new DefaultTableModel();
     private JPopupMenu roomMenu;
@@ -36,8 +41,10 @@ public class RoomHomeView extends AdminLayout {
 
         this.add(container);
         this.room = new Room();
+        this.reservation = new Reservation();
         this.roomService = new RoomManager();
         this.roomMenu = new JPopupMenu();
+        this.reservationService = new ReservationManager();
         FrameHelper.setupFrame(this,989, 555, "Alpay Tourism Agency");
 
         this.tbl_rooms.addMouseListener(new MouseAdapter() {
@@ -132,6 +139,13 @@ public class RoomHomeView extends AdminLayout {
             if (selectedRow != -1) {
                 int selectedId = Integer.parseInt(tbl_rooms.getValueAt(selectedRow, 0).toString());
 
+               ArrayList<Reservation> reservations = reservationService.getAllByRoomId(selectedId);
+
+                if (reservations != null) {
+                    for (Reservation reservation1 : reservations) {
+                        reservationService.delete(reservation1.getRoomId());
+                    }
+                }
 
                 SuccessInformationResult roomDeleted =  this.roomService.delete(selectedId);
                 roomDeleted.showMessageDialog();

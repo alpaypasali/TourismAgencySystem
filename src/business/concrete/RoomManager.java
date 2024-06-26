@@ -129,6 +129,21 @@ public class RoomManager implements IRoomService {
         return filteredRooms.isEmpty() ? null : filteredRooms;
     }
 
+    public ArrayList<Room> getRoomsByHotelId(int hotelId, int roomId) {
+        ArrayList<Room> allRooms = getAll(); // getAll() metodunu kullanarak tüm odaları al
+
+        if (allRooms == null || allRooms.isEmpty()) {
+            return new ArrayList<>(); // Eğer tüm odalar null veya boş ise boş bir liste döndür
+        }
+
+        // Lambda ve stream kullanarak filtreleme yap
+        ArrayList<Room> filteredRooms = allRooms.stream()
+                .filter(room -> room.getHotelId() == hotelId && (room.getRoomId() == roomId || room.getStock() > 0))
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        return filteredRooms;
+    }
+
     @Override
     public ArrayList<Object[]> getForTable(int size, ArrayList<Room> roomArrayList) {
         ArrayList<Object[]> arrayList = new ArrayList<>();
@@ -177,7 +192,7 @@ public class RoomManager implements IRoomService {
     }
     private  void StockCannotbeSmallerThanZero(int stock) throws ValidationException {
         if (stock <= 0) {
-            throw new ValidationException("Stock cannot be smaller or equals than zero");
+            throw new ValidationException("Stock cannot be smaller than zero");
         }
 
 

@@ -139,6 +139,6 @@ public class Hotel {
         this.pensionType = pensionType;
     }
     public ComboItem getComboItem() {
-        return new ComboItem(this.getHotelId(),this.getHotelName() +" - " + this.getPensionType());
+        return new ComboItem(this.getHotelId(),this.getHotelName() +" - " + this.getPensionType().getName());
     }
 }
