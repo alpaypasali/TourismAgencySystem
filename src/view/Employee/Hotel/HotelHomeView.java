@@ -148,7 +148,7 @@ public class HotelHomeView extends AdminLayout {
                 }
 
 
-                ArrayList<Room> rooms = hotel.getRooms();
+                ArrayList<Room> rooms = roomService.getAllByHotelId(selectedId);
                 if (rooms != null) {
                     for (Room room : rooms) {
                         roomService.delete(room.getRoomId());
