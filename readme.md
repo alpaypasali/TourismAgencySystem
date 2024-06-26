@@ -22,11 +22,11 @@ Bu proje, Patika Turizm Acentesi için geliştirilen bir otel yönetim ve rezerv
 ## Ekran Görüntüleri
 **Employee Panel** 
 
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+![img.png](src/img.png)
+![img_1.png](src/img_1.png)
+![img_2.png](src/img_2.png)
+![img_3.png](src/img_3.png)
 
 **Admin Panel**
 
-![img_4.png](img_4.png)
+![img_4.png](src/img_4.png)
