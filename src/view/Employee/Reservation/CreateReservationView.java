@@ -66,11 +66,10 @@ public class CreateReservationView extends JFrame{
                 reservation.setCustomerEmail(txt_email.getText());
                 reservation.setHotelId(hotel.getHotelId());
                 reservation.setRoomId(room.getRoomId());
-
-                SuccessInformationResult result = reservationService.create(reservation);
-                result.showMessageDialog();
                 room.setStock(room.getStock() - 1);
                 roomService.update(room);
+                SuccessInformationResult result = reservationService.create(reservation);
+                result.showMessageDialog();
                 dispose();
 
             }

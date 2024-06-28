@@ -111,11 +111,10 @@ public class ReservationHomeView extends AdminLayout {
             if (selectedRow != -1) {
                 int selectedId = Integer.parseInt(tbl_reservations.getValueAt(selectedRow, 0).toString());
 
-
-                SuccessInformationResult reservationDeleted =  this.reservationService.delete(selectedId);
                 Room room = roomService.getById(reservation.getRoomId());
                 room.setStock(room.getStock() + 1);
                 roomService.update(room);
+                SuccessInformationResult reservationDeleted =  this.reservationService.delete(selectedId);
                 reservationDeleted.showMessageDialog();
                 CreateTable(null);
 
